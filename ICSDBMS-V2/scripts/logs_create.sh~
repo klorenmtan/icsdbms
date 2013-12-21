@@ -1,0 +1,5 @@
+#!/bin/sh
+
+m ="$1"
+m ="$1 $2"
+echo $m >> ./logs/main/logs1

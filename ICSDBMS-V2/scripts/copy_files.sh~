@@ -1,0 +1,5 @@
+#!/bin/sh
+
+fname=$1
+cp data/main/$1.dat data/res
+cp data/main/$1.stdat data/res

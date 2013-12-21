@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pwd
+cd logs/main
+echo "I will just append to my custom log file" >> /logs/main/logs1
