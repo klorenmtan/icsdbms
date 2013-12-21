@@ -1,7 +1,48 @@
 void alter_table(char *args[]){
-	printf("%s\n",args[1]);
+	int tokens,i,counter=1;	
+	char filename[1000];
 	if(strcmp(args[2],"add")==0){
-	printf("add column\n");
+	//printf("add column\n");
+	
+	tokens=atoi(args[3]);
+	printf("tokens: %d",tokens);
+
+	filename[0]='\0';
+	strcat(filename,"data/tmp/");	
+	strcat(filename,args[1]);
+	strcat(filename,".stdat");
+
+	FILE *file = fopen(filename,"a");
+	
+	for(i=4;i<(tokens+4);i++){
+		//datatypes
+		if((strcmp(args[i],"int")==0) || (strcmp(args[i],"float")==0) || (strcmp(args[i],"char")==0) || (strcmp(args[i],"boolean")==0) || (strcmp(args[i],"date")==0)){
+		fprintf(file, " %s",args[i]);
+		
+		}
+		//constraints
+		else if((strcmp(args[i],"primary_key")==0) || (strcmp(args[i],"unique")==0) || (strcmp(args[i],"not_null")==0)){
+		fprintf(file, " %s",args[i]);
+		}
+		//varchar special case
+		else if(strcmp(args[i],"varchar")==0){
+			fprintf(file, " %s",args[i]);
+			fprintf(file, "%s",args[i+1]);
+			i++;
+			
+		}
+		//for column names 
+		else{
+			if(counter==1){	fprintf(file, "%s",args[i]); counter++;}
+			else{fprintf(file, "\n",args[i]); fprintf(file, "%s",args[i]); }	
+		}
+		
+
+	}	
+		
+	fclose(file);	
+		
+	
 	}
 	
 	if(strcmp(args[2],"rename")==0){

@@ -30,7 +30,7 @@ void table_data(char *name, char *size, char *args[]){
 		//for column names 
 		else{
 			if(counter==1){	fprintf(file, "%s",args[i]); counter++;}
-			else{fprintf(file, "\n",args[i]); fprintf(file, "%s",args[i]); }	
+			else{fprintf(file, "\n"); fprintf(file, "%s",args[i]); }	
 		}
 		
 

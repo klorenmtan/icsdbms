@@ -1,0 +1,5 @@
+id primary_key not_null
+name varchar (30)
+age int
+address varchar (50)id intsex varchar(2)
+sex varchar(2)

@@ -51,18 +51,17 @@ int main(){
 
 	
 	else if(strcmp(args[0], "alter")==0){
-	printf("This is alter\n");
-		if(check_exist(args[0],args[1])!=0){
-			if(check_exist_tmp(args[2])!=0){	
+	if(check_exist(args[0],args[1])!=0){
+			if(check_exist_tmp(args[1])!=0){	
 			alter_table(args);	
 			}
 			else {
-			copy_to_tmp(args[2]);
+			copy_to_tmp(args[1]);
 			alter_table(args);				
 			}
 		}else{error_msg(207);}	
 	
-		
+	}	
 	
 	/**
 	if(strcmp(args[0], "select")==0){
